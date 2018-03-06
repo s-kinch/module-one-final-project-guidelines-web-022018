@@ -10,7 +10,22 @@ class Movie < ActiveRecord::Base
     self.all.maximum("oscars")
   end
 
-  def self.title_with_most_oscars_won
+  def self.movie_with_most_oscars_won
     self.all.where("oscars == ?", self.most_oscars_won)
+  end
+
+  def self.movies_within_year_range(year1, year2)
+    if year1 > year2
+      dummy = year1
+      year1 = year2
+      year2 = dummy
+    end
+
+    self.print_titles(self.all.where("year > ? AND year < ?", year1, year2))
+    return nil
+  end
+
+  def self.print_titles(arr)
+    arr.each{|x| puts x.name}
   end
 end
