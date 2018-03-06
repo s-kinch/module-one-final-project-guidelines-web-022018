@@ -15,4 +15,11 @@ class Director < ActiveRecord::Base
     end
     puts dir_with_most_movies.name
   end
+
+  def self.director_names
+    names = self.all.map do |d|
+      d.name
+    end.uniq.sort
+    names.each { |n| puts n}
+  end
 end

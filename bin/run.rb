@@ -5,11 +5,22 @@ require './config/environment'
 
 
 def list_commands
-
+  commands = <<-TEXT
+    1 List All Directors
+    2 List All Genres
+    3 List All Movies
+  TEXT
+  puts commands
 end
 
 def do_command(entry=nil)
-
+  # puts "**********#{entry}"
+  case entry
+  when "1"
+    # puts "*******in case"
+    puts Director.director_names
+  else
+  end
 end
 
 
