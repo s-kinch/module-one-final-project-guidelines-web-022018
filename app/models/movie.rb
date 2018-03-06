@@ -42,9 +42,18 @@ class Movie < ActiveRecord::Base
   def self.oscars_by_country
     hash = {}
     self.have_won_oscars.each do |movie|
-      hash[movie.country] ||= 0
-      hash[movie.country] += 1
+      if movie.country
+        hash[movie.country] ||= 0
+        hash[movie.country] += 1
+      end
     end
     hash
+  end
+
+  def self.movies_by_director_and_genre(director_name, genre_name)
+    director = Director.find_by(name: director_name)
+    genre = Genre.find_by(name: genre_name)
+
+    self.all.where("director_id == ? AND genre_id == ?", director, genre)
   end
 end
