@@ -28,4 +28,14 @@ class Movie < ActiveRecord::Base
   def self.print_titles(arr)
     arr.each{|x| puts x.name}
   end
+
+  def self.list_all_countries
+    self.all.map do |movie|
+      movie.country
+    end.uniq.compact.sort
+  end
+
+  def self.print_list_of_countries
+    puts self.list_all_countries
+  end
 end
