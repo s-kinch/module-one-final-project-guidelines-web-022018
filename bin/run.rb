@@ -19,6 +19,8 @@ def do_command(entry=nil)
   when "1"
     # puts "*******in case"
     puts Director.director_names
+  when "2"
+    puts Genre.genre_names    
   else
   end
 end

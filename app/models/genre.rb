@@ -11,4 +11,12 @@ class Genre < ActiveRecord::Base
     # puts "**************TOP GENRE IS!:::#{current_top_genre.name}"
     puts "#{current_top_genre.name}"
   end
+
+
+    def self.genre_names
+      names = self.all.map do |d|
+        d.name
+      end.uniq.sort
+      names.each { |n| puts n}
+    end
 end
