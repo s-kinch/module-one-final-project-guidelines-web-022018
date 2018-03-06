@@ -38,4 +38,13 @@ class Movie < ActiveRecord::Base
   def self.print_list_of_countries
     puts self.list_all_countries
   end
+
+  def self.oscars_by_country
+    hash = {}
+    self.have_won_oscars.each do |movie|
+      hash[movie.country] ||= 0
+      hash[movie.country] += 1
+    end
+    hash
+  end
 end
