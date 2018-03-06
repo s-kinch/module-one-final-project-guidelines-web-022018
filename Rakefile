@@ -20,7 +20,10 @@ namespace :import do
       Movie.create(
         name: row['Film'],
         genre_id: genre.id,
-        director_id: director.id
+        director_id: director.id,
+        year: row['Year of cinema release'],
+        oscars: row['Oscars won'],
+        country: row['Country']
         # model_name: row['model_name'],
         # engine: row['engine'],
         # price: row['price'],
