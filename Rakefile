@@ -13,11 +13,10 @@ namespace :import do
   task :films  do
     # file = File.join(Rails.root, "cars.csv")
     # file = File.(".\cars.csv")
-    CSV.foreach("./films.csv", headers: true) do |row|
+    CSV.foreach("./films2.csv", headers: true) do |row|
       # p row
       director = Director.find_or_create_by(name: row['Director'])
       genre = Genre.find_or_create_by(name: row['Genre'])
-      binding.pry
       Movie.create(
         name: row['Film'],
         genre_id: genre.id,
