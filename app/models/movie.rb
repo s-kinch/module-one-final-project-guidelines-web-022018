@@ -29,6 +29,13 @@ class Movie < ActiveRecord::Base
     arr.each{|x| puts x.name}
   end
 
+  def self.movie_names
+    names = self.all.map do |d|
+      d.name
+    end.uniq.sort
+    names.each { |n| puts n}
+  end
+
   def self.list_all_countries
     self.all.map do |movie|
       movie.country

@@ -20,7 +20,9 @@ def do_command(entry=nil)
     # puts "*******in case"
     puts Director.director_names
   when "2"
-    puts Genre.genre_names    
+    puts Genre.genre_names
+  when "3"
+    Movie.movie_names  
   else
   end
 end
