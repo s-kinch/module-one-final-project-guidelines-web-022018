@@ -17,10 +17,11 @@ namespace :import do
       # p row
       director = Director.find_or_create_by(name: row['Director'])
       genre = Genre.find_or_create_by(name: row['Genre'])
+      binding.pry
       Movie.create(
         name: row['Film'],
-        genre_id: genre,
-        director_id: director
+        genre_id: genre.id,
+        director_id: director.id
         # model_name: row['model_name'],
         # engine: row['engine'],
         # price: row['price'],
