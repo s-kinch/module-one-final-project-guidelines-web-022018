@@ -42,7 +42,7 @@ def do_command(entry=nil)
   case entry
   when "1"
     puts ""
-    puts Director.director_names
+    puts Director.print_director_names
   when "2"
     print "Please enter a director: "
     director_name = gets.chomp

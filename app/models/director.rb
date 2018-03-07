@@ -17,10 +17,11 @@ class Director < ActiveRecord::Base
   end
 
   def self.director_names
-    names = self.all.map do |d|
-      d.name
-    end.uniq.sort
-    names.each { |n| puts n}
+    self.all.map{|d| d.name}.uniq.sort!
+  end
+
+  def self.print_director_names
+    puts self.director_names
   end
 
   def self.list_of_movies_by_director(name)
