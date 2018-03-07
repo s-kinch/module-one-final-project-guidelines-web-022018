@@ -6,7 +6,7 @@ require 'pry'
 
 def list_commands
   commands = <<-TEXT
-    OPTIONS:
+
     Type 'quit' to leave program
     --------------------------
     1. List All Directors
@@ -33,6 +33,7 @@ def list_commands
     17. List All Actors
     18. List All of an Actor's Movies
     19. List All of a Movie's Actors
+    
     TEXT
   puts commands
 end
