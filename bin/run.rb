@@ -1,6 +1,6 @@
 # require_relative 'config/environment'
 require './config/environment'
-
+require 'pry'
 
 
 
@@ -45,8 +45,13 @@ def do_command(entry=nil)
   when "6"
     print "Please enter a genre: "
     genre_name = gets.chomp
-    movies = Genre.find_by(name: genre_name).movies
-    Movie.print_titles(movies)
+    g = Genre.find_by(name: genre_name)
+    if g
+      movies = g.movies
+      Movie.print_titles(movies)
+    else
+      puts "Invalid input"
+    end
   when "7"
     print "Please enter a director: "
     director_name = gets.chomp
@@ -55,7 +60,11 @@ def do_command(entry=nil)
   when "8"
     print "Please enter director name:"
     name = gets.chomp
-    Director.genres_of_movies_by_director(name)
+    if Director.find_by(name: name)
+      Director.genres_of_movies_by_director(name)
+    else
+      puts "Invalid input"
+    end
   when "9"
     Movie.print_list_of_countries
   when "10"
