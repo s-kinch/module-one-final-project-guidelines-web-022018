@@ -115,7 +115,7 @@ def do_command(entry=nil)
     Genre.print_list_movies_from_genre(genre_name)
   when "16"
     puts ""
-    Genre.genre_with_the_most_movies
+    Genre.print_genre_with_the_most_movies
   when "17"
     puts ""
     Actor.print_list_of_all_actor_names
