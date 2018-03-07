@@ -1,8 +1,8 @@
 # require_relative 'config/environment'
 require './config/environment'
 require 'pry'
-
-
+require './bin/splash'
+# ^^^^ splash is running as soon as it's required, so at beginning, is this how we want it?
 
 def list_commands
   commands = <<-TEXT
@@ -137,8 +137,8 @@ end
 
 
 #possibly clear screen first
-Gem.win_platform? ? (system "cls") : (system "clear")
-puts "Welcome to the Greatest Films of All Time Database"
+# Gem.win_platform? ? (system "cls") : (system "clear")
+# puts "Welcome to the Greatest Films of All Time Database"
 
 stay_in_app = true
 
