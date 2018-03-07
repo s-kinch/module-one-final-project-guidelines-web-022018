@@ -14,10 +14,11 @@ class Genre < ActiveRecord::Base
 
 
     def self.genre_names
-      names = self.all.map do |d|
-        d.name
-      end.uniq.sort
-      names.each { |n| puts n}
+      self.all.map { |g| g.name}.uniq.sort!
+    end
+
+    def self.print_genre_names
+      puts self.genre_names
     end
 
     def self.list_movies_from_genre(name)

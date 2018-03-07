@@ -107,7 +107,7 @@ def do_command(entry=nil)
     Movie.movies_within_year_range(year1, year2)
   when "14"
     puts ""
-    puts Genre.genre_names
+    puts Genre.print_genre_names
   when "15"
     print "Please enter a genre: "
     genre_name = gets.chomp
