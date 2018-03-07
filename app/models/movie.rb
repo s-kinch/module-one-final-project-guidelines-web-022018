@@ -84,4 +84,14 @@ class Movie < ActiveRecord::Base
 
     self.all.where("director_id == ? AND genre_id == ?", director, genre).map{|x| x.name}
   end
+
+  def self.list_actors_in_movie(name)
+    if self.find_by(name: name)
+      self.find_by(name: name).actors.map { |m| m.name}.sort!
+    end
+  end
+
+  def self.print_list_actors_in_movie(name)
+    puts self.list_actors_in_movie(name)
+  end
 end
