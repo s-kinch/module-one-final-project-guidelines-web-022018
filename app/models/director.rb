@@ -23,6 +23,14 @@ class Director < ActiveRecord::Base
     names.each { |n| puts n}
   end
 
+  def self.list_of_movies_by_director(name)
+    self.find_by(name: name).movies.map { |m| m.name  }.sort! if self.find_by(name: name)
+  end
+
+  def self.print_list_of_movies_by_director(name)
+    puts self.list_of_movies_by_director(name)
+  end
+
   def self.genres_of_movies_by_director(name)
     self.find_by(name: name).genres.map { |genre| genre.name  }.sort! if self.find_by(name: name)
   end
