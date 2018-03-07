@@ -33,7 +33,7 @@ def list_commands
     17. List All Actors
     18. List All of an Actor's Movies
     19. List All of a Movie's Actors
-    
+
     TEXT
   puts commands
 end
@@ -41,16 +41,20 @@ end
 def do_command(entry=nil)
   case entry
   when "1"
+    puts ""
     puts Director.director_names
   when "2"
     print "Please enter a director: "
     director_name = gets.chomp
+    puts ""
     Director.print_list_of_movies_by_director(director_name)
   when "3"
     print "Please enter director name:"
     name = gets.chomp
+    puts ""
     Director.print_genres_of_movies_by_director(name)
   when "4"
+    puts ""
     Director.director_with_most_movies
   when "5"
     print "Please enter director name: "
@@ -58,6 +62,7 @@ def do_command(entry=nil)
     if Director.find_by(name: dir_name)
       print "Please enter genre: "
       genre = gets.chomp
+      puts ""
       if Genre.find_by(name: genre)
         puts Movie.movies_by_director_and_genre(dir_name, genre)
       else
@@ -67,22 +72,29 @@ def do_command(entry=nil)
       puts "Invalid input"
     end
   when "6"
+    puts ""
     Movie.print_list_of_countries
   when "7"
     print "Please enter country name: "
     name = gets.chomp
+    puts ""
     Movie.list_movies_from_a_country(name)
   when "8"
+    puts ""
     Movie.print_titles(Movie.have_won_oscars)
   when "9"
+    puts ""
     puts Movie.movie_with_most_oscars_won[0].name + ", " + Movie.most_oscars_won.to_s
   when "10"
+    puts ""
     Movie.oscars_by_country
   when "11"
+    puts ""
     Movie.movie_names
   when "12"
     print "Please enter year: "
     year = gets.chomp
+    puts ""
     Movie.movies_within_single_year(year)
   when "13"
     puts "Please enter a range of years."
@@ -90,24 +102,31 @@ def do_command(entry=nil)
     year1 = gets.chomp
     print "Enter the second year: "
     year2 = gets.chomp
+    puts ""
     Movie.movies_within_year_range(year1, year2)
   when "14"
+    puts ""
     puts Genre.genre_names
   when "15"
     print "Please enter a genre: "
     genre_name = gets.chomp
+    puts ""
     Genre.print_list_movies_from_genre(genre_name)
   when "16"
+    puts ""
     Genre.genre_with_the_most_movies
   when "17"
+    puts ""
     Actor.print_list_of_all_actor_names
   when "18"
     print "Please enter an actor's name: "
     actor_name = gets.chomp
+    puts ""
     Actor.print_get_actors_movie(actor_name)
   when "19"
     print "Please enter a movie: "
     movie_name = gets.chomp
+    puts ""
     Movie.print_list_actors_in_movie(movie_name)
   else
     puts "Unable to comply, please check your input and try again."
