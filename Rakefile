@@ -15,10 +15,10 @@ namespace :import do
     # file = File.(".\cars.csv")
     CSV.foreach("./films2.csv", headers: true) do |row|
       # p row
-      director = Director.find_or_create_by(name: row['Director'])
+      director = Director.find_or_create_by(name: row['Director'].strip)
       genre = Genre.find_or_create_by(name: row['Genre'])
       Movie.create(
-        name: row['Film'],
+        name: row['Film'].strip,
         genre_id: genre.id,
         director_id: director.id,
         year: row['Year of cinema release'],
