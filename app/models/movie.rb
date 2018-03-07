@@ -64,7 +64,13 @@ class Movie < ActiveRecord::Base
         hash[movie.country] += 1
       end
     end
-    hash
+    hash.each do |k,v|
+      output = k + ", " + v.to_s + " Oscar"
+      if v > 1
+        output += "s"
+      end
+      puts output
+    end
   end
 
   def self.movies_by_director_and_genre(director_name, genre_name)

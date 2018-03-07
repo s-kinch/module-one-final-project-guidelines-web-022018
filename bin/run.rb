@@ -20,6 +20,7 @@ def list_commands
     11 List Director With The Most Movies
     12 List All Movies That Won Oscars
     13 List Movie With Most Oscars
+    14 List Oscars By Country
     TEXT
   puts commands
 end
@@ -83,6 +84,8 @@ def do_command(entry=nil)
     Movie.print_titles(Movie.have_won_oscars)
   when "13"
     puts Movie.movie_with_most_oscars_won[0].name + ", " + Movie.most_oscars_won.to_s
+  when "14"
+    Movie.oscars_by_country
   else
     puts "Unable to comply, please check your input and try again."
   end
