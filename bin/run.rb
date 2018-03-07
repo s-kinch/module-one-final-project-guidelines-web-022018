@@ -81,7 +81,8 @@ def do_command(entry=nil)
     Movie.list_movies_from_a_country(name)
   when "8"
     puts ""
-    Movie.print_titles(Movie.have_won_oscars)
+    # Movie.print_titles(Movie.have_won_oscars)
+    Movie.print_have_won_oscars
   when "9"
     puts ""
     puts Movie.movie_with_most_oscars_won[0].name + ", " + Movie.most_oscars_won.to_s

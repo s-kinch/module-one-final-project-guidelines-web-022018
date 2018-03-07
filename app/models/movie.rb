@@ -4,7 +4,11 @@ class Movie < ActiveRecord::Base
   has_and_belongs_to_many :actors
 
   def self.have_won_oscars
-    self.all.where("oscars > 0")
+    self.all.where("oscars > 0").map {|m| m.name}.sort!
+  end
+
+  def self.print_have_won_oscars
+    puts self.have_won_oscars
   end
 
   def self.most_oscars_won
