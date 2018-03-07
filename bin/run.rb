@@ -10,9 +10,9 @@ def list_commands
     2 List All Genres
     3 List All Movies
     4 List Movies From A Year
-    # 5 List Movies From A Range Of Years
-    # 6 List All Movies From A Genre
-    # 7 List All Movies From A Director
+    5 List Movies From A Range Of Years
+    6 List All Movies From A Genre
+    7 List All Movies From A Director
     # 8 List All Movie Genres From A Director
     # 9 List All Countries That Have Movies On The List
     # 10 List All Movies From A Country
@@ -45,6 +45,11 @@ def do_command(entry=nil)
     print "Please enter a genre: "
     genre_name = gets.chomp
     movies = Genre.find_by(name: genre_name).movies
+    Movie.print_titles(movies)
+  when "7"
+    print "Please enter a director: "
+    director_name = gets.chomp
+    movies = Director.find_by(name: director_name).movies
     Movie.print_titles(movies)
   else
   end
