@@ -64,13 +64,17 @@ class Movie < ActiveRecord::Base
         hash[movie.country] += 1
       end
     end
+    output_array = []
     hash.each do |k,v|
       output = k + ", " + v.to_s + " Oscar"
       if v > 1
         output += "s"
       end
-      puts output
+      output_array << [k,output]
+      # puts output
     end
+    output_array.sort!{|x,y| x[0] <=>y[0]}.each { |val| puts val[1]}
+    return nil
   end
 
   def self.movies_by_director_and_genre(director_name, genre_name)
