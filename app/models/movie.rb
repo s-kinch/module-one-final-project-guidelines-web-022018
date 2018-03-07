@@ -81,6 +81,6 @@ class Movie < ActiveRecord::Base
     director = Director.find_by(name: director_name)
     genre = Genre.find_by(name: genre_name)
 
-    self.all.where("director_id == ? AND genre_id == ?", director, genre)
+    self.all.where("director_id == ? AND genre_id == ?", director, genre).map{|x| x.name}
   end
 end

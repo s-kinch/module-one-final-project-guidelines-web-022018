@@ -21,6 +21,7 @@ def list_commands
     12 List All Movies That Won Oscars
     13 List Movie With Most Oscars
     14 List Oscars By Country
+    15 List Movies By Director And Genre
     TEXT
   puts commands
 end
@@ -86,6 +87,20 @@ def do_command(entry=nil)
     puts Movie.movie_with_most_oscars_won[0].name + ", " + Movie.most_oscars_won.to_s
   when "14"
     Movie.oscars_by_country
+  when "15"
+    print "Please enter director name: "
+    dir_name = gets.chomp
+    if Director.find_by(name: dir_name)
+      print "Please enter genre: "
+      genre = gets.chomp
+      if Genre.find_by(name: genre)
+        puts Movie.movies_by_director_and_genre(dir_name, genre)
+      else
+        puts "Invalid input"
+      end
+    else
+      puts "Invalid input"
+    end
   else
     puts "Unable to comply, please check your input and try again."
   end
