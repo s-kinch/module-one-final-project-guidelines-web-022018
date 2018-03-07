@@ -21,9 +21,9 @@ namespace :import do
         oscars: row['Oscars won'],
         country: row['Country']
       )
-      row['Leading actors'].strip.chomp('"').split(', ').each do |actor_name|
+      row['Leading actors'].strip.chomp('"').split(',').each do |actor_name|
         a = Actor.find_or_create_by(
-          name: actor_name
+          name: actor_name.strip
         )
         a.movies << m
       end
