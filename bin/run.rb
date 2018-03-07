@@ -34,6 +34,13 @@ def do_command(entry=nil)
     print "Please enter year: "
     year = gets.chomp
     Movie.movies_within_single_year(year)
+  when "5"
+    puts "Please enter a range of years."
+    print "Enter the first year: "
+    year1 = gets.chomp
+    print "Enter the second year: "
+    year2 = gets.chomp
+    Movie.movies_within_year_range(year1, year2)
   else
   end
 end
