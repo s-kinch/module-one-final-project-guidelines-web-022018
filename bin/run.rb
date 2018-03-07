@@ -55,7 +55,7 @@ def do_command(entry=nil)
     Director.print_genres_of_movies_by_director(name)
   when "4"
     puts ""
-    Director.director_with_most_movies
+    Director.print_director_with_most_movies
   when "5"
     print "Please enter director name: "
     dir_name = gets.chomp

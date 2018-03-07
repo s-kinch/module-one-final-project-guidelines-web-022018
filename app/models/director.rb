@@ -3,17 +3,11 @@ class Director < ActiveRecord::Base
   has_many :genres, through: :movies
 
   def self.director_with_most_movies
-    dir_with_most_movies = nil
-    self.all.each do |d|
-      # dir_with_most_movies = d if d.movies.count > dir_with_most_movies.movies.count unless dir_with_most_movies.nil?
-      if dir_with_most_movies.nil?
-        dir_with_most_movies = d
-      end
-      if d.movies.count > dir_with_most_movies.movies.count
-        dir_with_most_movies = d
-      end
-    end
-    puts dir_with_most_movies.name
+    self.all.sort{ |a,b| a.movies.count <=> b.movies.count}.last.name #highest is last
+  end
+
+  def self.print_director_with_most_movies
+    puts self.director_with_most_movies
   end
 
   def self.director_names
