@@ -67,9 +67,13 @@ class Movie < ActiveRecord::Base
   def self.oscars_by_country
     hash = {}
     self.have_won_oscars.each do |movie|
-      if movie.country
-        hash[movie.country] ||= 0
-        hash[movie.country] += 1
+    # binding.pry
+      # if movie.country
+      if Movie.find_by(name: movie).country
+        # hash[movie.country] ||= 0
+        hash[Movie.find_by(name: movie).country] ||= 0
+        # hash[movie.country] += 1
+        hash[Movie.find_by(name: movie).country] += 1
       end
     end
     output_array = []
