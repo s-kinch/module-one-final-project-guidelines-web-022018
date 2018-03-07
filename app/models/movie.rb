@@ -14,6 +14,10 @@ class Movie < ActiveRecord::Base
     self.all.where("oscars == ?", self.most_oscars_won)
   end
 
+  def self.movies_within_single_year(year)
+    self.print_titles(self.all.where("year == ?", year))
+  end
+
   def self.movies_within_year_range(year1, year2)
     if year1 > year2
       dummy = year1

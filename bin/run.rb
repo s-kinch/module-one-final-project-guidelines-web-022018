@@ -9,6 +9,13 @@ def list_commands
     1 List All Directors
     2 List All Genres
     3 List All Movies
+    4 List Movies From A Year
+    # 5 List Movies From A Range Of Years
+    # 6 List All Movies From A Genre
+    # 7 List All Movies From A Director
+    # 8 List All Movie Genres From A Director
+    # 9 List All Countries That Have Movies On The List
+    # 10 List All Movies From A Country
   TEXT
   puts commands
 end
@@ -22,7 +29,11 @@ def do_command(entry=nil)
   when "2"
     puts Genre.genre_names
   when "3"
-    Movie.movie_names  
+    Movie.movie_names
+  when "4"
+    print "Please enter year: "
+    year = gets.chomp
+    Movie.movies_within_single_year(year)
   else
   end
 end
