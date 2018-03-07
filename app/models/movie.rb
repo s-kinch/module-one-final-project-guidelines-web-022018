@@ -51,6 +51,10 @@ class Movie < ActiveRecord::Base
     end.uniq.compact.sort
   end
 
+  def self.print_list_of_countries
+    puts self.list_all_countries
+  end
+
   def self.list_movies_from_a_country(country)
     self.all.where("country == ?",country).map { |m| m.name}.sort!
   end
@@ -59,9 +63,6 @@ class Movie < ActiveRecord::Base
     puts self.list_movies_from_a_country(country)
   end
 
-  def self.print_list_of_countries
-    puts self.list_all_countries
-  end
 
   def self.oscars_by_country
     hash = {}
