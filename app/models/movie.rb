@@ -1,6 +1,7 @@
 class Movie < ActiveRecord::Base
   belongs_to :director
   belongs_to :genre
+  has_and_belongs_to_many :actors
 
   def self.have_won_oscars
     self.all.where("oscars > 0")

@@ -9,26 +9,24 @@ end
 
 namespace :import do
   desc "Import cars from CSV"
-  # task films: :environment do
   task :films  do
-    # file = File.join(Rails.root, "cars.csv")
-    # file = File.(".\cars.csv")
     CSV.foreach("./films2.csv", headers: true) do |row|
-      # p row
       director = Director.find_or_create_by(name: row['Director'].strip)
       genre = Genre.find_or_create_by(name: row['Genre'])
-      Movie.create(
+      m = Movie.create(
         name: row['Film'].strip,
         genre_id: genre.id,
         director_id: director.id,
         year: row['Year of cinema release'],
         oscars: row['Oscars won'],
         country: row['Country']
-        # model_name: row['model_name'],
-        # engine: row['engine'],
-        # price: row['price'],
-        # doors: row['doors'])
       )
+      row['Leading actors'].strip.chomp('"').split(',').each do |actor_name|
+        a = Actor.create(
+          name: actor_name.strip
+        )
+        a.movies << m
+      end
     end
   end
 end
