@@ -41,6 +41,11 @@ def do_command(entry=nil)
     print "Enter the second year: "
     year2 = gets.chomp
     Movie.movies_within_year_range(year1, year2)
+  when "6"
+    print "Please enter a genre: "
+    genre_name = gets.chomp
+    movies = Genre.find_by(name: genre_name).movies
+    Movie.print_titles(movies)
   else
   end
 end
