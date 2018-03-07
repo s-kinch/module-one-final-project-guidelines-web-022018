@@ -14,7 +14,7 @@ def list_commands
     # 6 List All Movies From A Genre
     # 7 List All Movies From A Director
     8 List All Movie Genres From A Director
-    # 9 List All Countries That Have Movies On The List
+    9 List All Countries That Have Movies On The List
     # 10 List All Movies From A Country
   TEXT
   puts commands
@@ -37,7 +37,9 @@ def do_command(entry=nil)
   when "8"
     print "Please enter Director name:"
     name = gets.chomp
-    Director.genres_of_movies_by_director(name)  
+    Director.genres_of_movies_by_director(name)
+  when "9"
+    Movie.print_list_of_countries  
   else
   end
 end
