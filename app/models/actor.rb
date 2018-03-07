@@ -10,5 +10,14 @@ class Actor < ActiveRecord::Base
     puts self.list_all_actor_names
   end
 
+  def self.get_actors_movie(name)
+    if self.find_by(name: name)
+      self.find_by(name: name).movies.map { |m| m.name}.sort!
+    end
+  end
+
+  def self.print_get_actors_movie(name)
+    puts self.get_actors_movie(name)
+  end
 
 end
