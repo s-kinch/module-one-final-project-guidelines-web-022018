@@ -17,6 +17,7 @@ def list_commands
     8 List All Movie Genres From A Director
     9 List All Countries That Have Movies On The List
     10 List All Movies From A Country
+    11 List Director With The Most Movies
     TEXT
   puts commands
 end
@@ -76,6 +77,8 @@ def do_command(entry=nil)
     print "Please enter country name: "
     name = gets.chomp
     Movie.list_movies_from_a_country(name)
+  when "11"
+    Director.director_with_most_movies
   else
     puts "Unable to comply, please check your input and try again."
   end
