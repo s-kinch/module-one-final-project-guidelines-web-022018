@@ -128,13 +128,13 @@ while(stay_in_app) do
   list_commands #function
   print "Please enter a number or 'quit': "
   entry=gets.chomp
-  # do_command(entry) if entry != "quit"#function
-  # stay_in_app = false if entry == "quit"
   if entry == "quit"
     stay_in_app = false
   else
     do_command(entry)
+    puts "***********************************************************************"
+    puts "Press enter to continue"
+    waiting_on_user = gets.chomp
   end #if
-  # stay_in_app = false
 end# while
 puts "THANK YOU FOR USING THE DATABASE"
