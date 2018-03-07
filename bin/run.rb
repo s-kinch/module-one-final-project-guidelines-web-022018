@@ -52,13 +52,7 @@ def do_command(entry=nil)
   when "6"
     print "Please enter a genre: "
     genre_name = gets.chomp
-    g = Genre.find_by(name: genre_name)
-    if g
-      movies = g.movies
-      Movie.print_titles(movies)
-    else
-      puts "Invalid input"
-    end
+    Genre.print_list_movies_from_genre(genre_name)
   when "7"
     print "Please enter a director: "
     director_name = gets.chomp

@@ -19,4 +19,12 @@ class Genre < ActiveRecord::Base
       end.uniq.sort
       names.each { |n| puts n}
     end
+
+    def self.list_movies_from_genre(name)
+      self.find_by(name: name).movies.map { |m| m.name}.sort!  if self.find_by(name: name)
+    end
+
+    def self.print_list_movies_from_genre(genre)
+      puts self.list_movies_from_genre(genre)
+    end
 end
