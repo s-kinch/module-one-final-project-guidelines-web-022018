@@ -22,6 +22,7 @@ def list_commands
     13 List Movie With Most Oscars
     14 List Oscars By Country
     15 List Movies By Director And Genre
+    16 List Genre With The Most Movies
     TEXT
   puts commands
 end
@@ -101,6 +102,8 @@ def do_command(entry=nil)
     else
       puts "Invalid input"
     end
+  when "16"
+    Genre.genre_with_the_most_movies  
   else
     puts "Unable to comply, please check your input and try again."
   end
