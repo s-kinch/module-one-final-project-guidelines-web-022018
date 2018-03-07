@@ -52,9 +52,11 @@ class Movie < ActiveRecord::Base
   end
 
   def self.list_movies_from_a_country(country)
-    # self.all.where("country == ?",country).map { |m| m.name}.each { |m| puts m}
-    self.all.where("country == ?",country).each { |m| puts m.name}#.each { |m| puts m}
-    return nil
+    self.all.where("country == ?",country).map { |m| m.name}.sort!
+  end
+
+  def self.print_list_movies_from_a_country(country)
+    puts self.list_movies_from_a_country(country)
   end
 
   def self.print_list_of_countries

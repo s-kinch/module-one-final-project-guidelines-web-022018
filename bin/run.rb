@@ -78,7 +78,7 @@ def do_command(entry=nil)
     print "Please enter country name: "
     name = gets.chomp
     puts ""
-    Movie.list_movies_from_a_country(name)
+    Movie.print_list_movies_from_a_country(name)
   when "8"
     puts ""
     # Movie.print_titles(Movie.have_won_oscars)
