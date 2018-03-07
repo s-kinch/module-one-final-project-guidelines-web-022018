@@ -63,6 +63,7 @@ def do_command(entry=nil)
     name = gets.chomp
     Movie.list_movies_from_a_country(name)
   else
+    puts "Unable to comply, please check your input and try again."
   end
 end
 
@@ -89,3 +90,4 @@ while(stay_in_app) do
   end #if
   # stay_in_app = false
 end# while
+puts "THANK YOU FOR USING THE DATABASE"
