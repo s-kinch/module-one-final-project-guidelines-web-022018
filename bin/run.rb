@@ -137,6 +137,7 @@ end
 
 
 #possibly clear screen first
+Gem.win_platform? ? (system "cls") : (system "clear")
 puts "Welcome to the Greatest Films of All Time Database"
 
 stay_in_app = true
