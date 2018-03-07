@@ -26,7 +26,7 @@ class Movie < ActiveRecord::Base
       year2 = dummy
     end
 
-    self.print_titles(self.all.where("year > ? AND year < ?", year1, year2))
+    self.print_titles(self.all.where("year >= ? AND year <= ?", year1, year2))
     return nil
   end
 
