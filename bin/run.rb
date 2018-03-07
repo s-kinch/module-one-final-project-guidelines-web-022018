@@ -15,7 +15,7 @@ def list_commands
     # 7 List All Movies From A Director
     8 List All Movie Genres From A Director
     9 List All Countries That Have Movies On The List
-    # 10 List All Movies From A Country
+    10 List All Movies From A Country
   TEXT
   puts commands
 end
@@ -35,11 +35,15 @@ def do_command(entry=nil)
     year = gets.chomp
     Movie.movies_within_single_year(year)
   when "8"
-    print "Please enter Director name:"
+    print "Please enter director name:"
     name = gets.chomp
     Director.genres_of_movies_by_director(name)
   when "9"
-    Movie.print_list_of_countries  
+    Movie.print_list_of_countries
+  when "10"
+    print "Please enter country name: "
+    name = gets.chomp
+    Movie.list_movies_from_a_country(name)
   else
   end
 end
