@@ -6,26 +6,33 @@ require 'pry'
 
 def list_commands
   commands = <<-TEXT
-    Type quit to leave program
-    1 List All Directors
-    2 List All Genres
-    3 List All Movies
-    4 List Movies From A Year
-    5 List Movies From A Range Of Years
-    6 List All Movies From A Genre
-    7 List All Movies From A Director
-    8 List All Movie Genres From A Director
-    9 List All Countries That Have Movies On The List
-    10 List All Movies From A Country
-    11 List Director With The Most Movies
-    12 List All Movies That Won Oscars
-    13 List Movie With Most Oscars
-    14 List Oscars By Country
-    15 List Movies By Director And Genre
-    16 List Genre With The Most Movies
-    17 List All Actors
-    18 List All Of An Actor's Movies
-    19 List All Of A Movie's Actors
+    OPTIONS:
+    Type 'quit' to leave program
+    --------------------------
+    1. List All Directors
+    7. List All Movies from a Director
+    8. List All Movie Genres from a Director
+    11. List Director with the Most Movies
+    15. List Movies by Director and Genre
+    --------------------------
+    9. List All Countries that have Movies on the List
+    10. List All Movies from a Country
+    --------------------------
+    12. List All Movies that Won Oscars
+    13. List Movie with Most Oscars
+    14. List Oscars by Country
+    --------------------------
+    3. List All Movies
+    4. List Movies from a Year
+    5. List Movies from a Range of Years
+    --------------------------
+    2. List All Genres
+    6. List All Movies from a Genre
+    16. List Genre with the Most Movies
+    --------------------------
+    17. List All Actors
+    18. List All of an Actor's Movies
+    19. List All of a Movie's Actors
     TEXT
   puts commands
 end
