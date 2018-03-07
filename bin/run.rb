@@ -72,11 +72,7 @@ def do_command(entry=nil)
   when "8"
     print "Please enter director name:"
     name = gets.chomp
-    if Director.find_by(name: name)
-      Director.genres_of_movies_by_director(name)
-    else
-      puts "Invalid input"
-    end
+    Director.print_genres_of_movies_by_director(name)
   when "9"
     Movie.print_list_of_countries
   when "10"
