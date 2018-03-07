@@ -23,10 +23,8 @@ def list_commands
 end
 
 def do_command(entry=nil)
-  # puts "**********#{entry}"
   case entry
   when "1"
-    # puts "*******in case"
     puts Director.director_names
   when "2"
     puts Genre.genre_names
