@@ -22,4 +22,10 @@ class Director < ActiveRecord::Base
     end.uniq.sort
     names.each { |n| puts n}
   end
+
+  def self.genres_of_movies_by_director(name)
+    genre_names = self.all.find_by(name: name).genres.map { |genre| genre.name  }
+    genre_names.each { |g| puts g}
+    return nil
+  end
 end
