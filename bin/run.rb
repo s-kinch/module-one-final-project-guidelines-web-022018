@@ -50,8 +50,13 @@ def do_command(entry=nil)
   when "7"
     print "Please enter a director: "
     director_name = gets.chomp
-    movies = Director.find_by(name: director_name).movies
-    Movie.print_titles(movies)
+    d = Director.find_by(name: director_name)
+    if d
+      movies = Director.find_by(name: director_name).movies
+      Movie.print_titles(movies)
+    else
+      puts "Invalid entry"
+    end
   when "8"
     print "Please enter director name:"
     name = gets.chomp
