@@ -63,6 +63,7 @@ def do_command(entry=nil)
     dir_name = gets.chomp
     print "Please enter genre name: "
     genre = gets.chomp
+    puts ""
     puts Movie.movies_by_director_and_genre(dir_name, genre)
   when "6"
     puts ""
