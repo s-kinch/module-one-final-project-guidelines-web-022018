@@ -27,7 +27,7 @@ class Director < ActiveRecord::Base
   end
 
   def self.genres_of_movies_by_director(name)
-    self.find_by(name: name).genres.map { |genre| genre.name  }.sort! if self.find_by(name: name)
+    self.find_by(name: name).genres.map { |genre| genre.name  }.uniq.sort! if self.find_by(name: name)
   end
 
   def self.print_genres_of_movies_by_director(name)
