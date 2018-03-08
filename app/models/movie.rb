@@ -58,8 +58,7 @@ class Movie < ActiveRecord::Base
   end
 
   def self.list_movies_from_a_country(country)
-    self.all.where("country == ?",country).map { |m| m.name}.sort!
-    # how to handle invalid input for this one?
+    self.all.where("lower(country) == ?",country.downcase).map { |m| m.name}.sort!
   end
 
   def self.print_list_movies_from_a_country(country)
