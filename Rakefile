@@ -8,7 +8,7 @@ task :console do
 end
 
 namespace :import do
-  desc "Import cars from CSV"
+  desc "Import films from CSV"
   task :films  do
     CSV.foreach("./films2.csv", headers: true) do |row|
       director = Director.find_or_create_by(name: row['Director'].strip)
