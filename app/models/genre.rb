@@ -31,4 +31,13 @@ class Genre < ActiveRecord::Base
   def self.print_list_movies_from_genre(genre)
     puts self.list_movies_from_genre(genre)
   end
+  #**********************************************************Need to add to run file
+
+  def self.list_actors_from_genre(genre)
+    Genre.find_by(name: genre).actors.map{|a| a.name}.sort! if Genre.find_by(name: genre)
+  end
+
+  def self.print_list_actors_from_genre(genre)
+    puts self.list_actors_from_genre(genre)
+  end
 end
