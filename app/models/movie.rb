@@ -97,8 +97,8 @@ class Movie < ActiveRecord::Base
   end
 
   def self.list_actors_in_movie(name)
-    if self.find_by(name: name)
-      self.find_by(name: name).actors.map { |m| m.name}.sort!
+    if self.fnd(name)
+      self.fnd(name).actors.map { |m| m.name}.sort!
     else
       self.suggestions(name)
     end
@@ -109,7 +109,7 @@ class Movie < ActiveRecord::Base
   end
 
   def self.movie_info(name)
-    movie = self.find_by(name: name)
+    movie = self.fnd(name)
     if movie
       puts "Title: #{name}"
       puts "Year: #{movie.year}"
