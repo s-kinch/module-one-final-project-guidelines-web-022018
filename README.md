@@ -13,6 +13,12 @@ Run 'rake db:migrate' to create database
 
 Run 'rake import:films' to import data into the database
 
+# Run Instructions
+
+Run 'ruby bin/run'
+
+Best viewed with console maximized.
+
 # Contributors
 Sinclair Kinch https://github.com/s-kinch
 
