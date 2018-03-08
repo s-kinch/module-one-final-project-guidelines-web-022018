@@ -86,10 +86,11 @@ class Movie < ActiveRecord::Base
   end
 
   def self.movies_by_director_and_genre(director_name, genre_name)
-    director = Director.find_by(name: director_name)
-    genre = Genre.find_by(name: genre_name)
-
-    self.all.where("director_id == ? AND genre_id == ?", director, genre).map{|x| x.name}
+    director = Director.all.where("lower(name) == ?",director_name.downcase)[0]# .map { |d| puts d.id}#.exists?
+    genre = Genre.all.where("lower(name) == ?",genre_name.downcase)[0] #.map {|g| puts g.id}#.exists?
+    if director && genre
+      self.where("director_id == ? AND genre_id == ?", director, genre).map{|x| x.name}
+    end
   end
 
   def self.list_actors_in_movie(name)
