@@ -159,9 +159,6 @@ end
 stay_in_app = true
 
 while(stay_in_app) do
-  # puts "What would you like to do? Type 'help' for a list of commands"
-  puts "***********************************************************************"
-  puts "***********************************************************************"
   puts "Here are a list of commands. What would you like to do?"
   list_commands #function
   print "Please enter a number or 'quit': "
