@@ -167,6 +167,7 @@ while(stay_in_app) do
     puts "***********************************************************************"
     puts "Press enter to continue"
     waiting_on_user = gets.chomp
+    Gem.win_platform? ? (system "cls") : (system "clear")
   end #if
 end# while
 puts "THANK YOU FOR USING THE DATABASE"
