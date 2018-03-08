@@ -1,7 +1,7 @@
 
 # Greatest Movies Of All Time Interactive Database - Module One Final Project
 
-This is a CLI application that is able to perform queries on a database of movies using ActiveRecord classes.
+This is a CLI application that is able to perform queries on a database of movies using ActiveRecord classes
 
 # Installation Instructions
 
@@ -17,7 +17,7 @@ Run 'rake import:films' to import data into the database
 
 Run 'ruby bin/run.rb'
 
-Best viewed with console maximized.
+Best viewed with console maximized
 
 # Contributors
 Sinclair Kinch https://github.com/s-kinch
