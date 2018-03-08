@@ -54,7 +54,10 @@ class Movie < ActiveRecord::Base
   end
 
   def self.list_movies_from_a_country(country)
-    self.all.where("country == ?",country).map { |m| m.name}.sort!
+    # self.all.where("country == ?",country).map { |m| m.name}.sort!
+    if self.all.where("lower(country) == ?",country.downcase).exists?
+      self.all.where("lower(country) == ?",country.downcase).map { |m| m.name}.sort!
+    end
   end
 
   def self.print_list_movies_from_a_country(country)
