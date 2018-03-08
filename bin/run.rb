@@ -61,18 +61,21 @@ def do_command(entry=nil)
   when "5"
     print "Please enter director name: "
     dir_name = gets.chomp
-    if Director.find_by(name: dir_name)
-      print "Please enter genre: "
-      genre = gets.chomp
-      puts ""
-      if Genre.find_by(name: genre)
-        puts Movie.movies_by_director_and_genre(dir_name, genre)
-      else
-        puts "Invalid input"
-      end
-    else
-      puts "Invalid input"
-    end
+    print "Please enter genre name: "
+    genre = gets.chomp
+    # if Director.find_by(name: dir_name)
+    #   print "Please enter genre: "
+    #   genre = gets.chomp
+    #   puts ""
+    #   if Genre.find_by(name: genre)
+    #     puts Movie.movies_by_director_and_genre(dir_name, genre)
+    #   else
+    #     puts "Invalid input"
+    #   end
+    # else
+    #   puts "Invalid input"
+    # end
+    puts Movie.movies_by_director_and_genre(dir_name, genre)
   when "6"
     puts ""
     Movie.print_list_of_countries

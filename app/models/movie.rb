@@ -1,4 +1,8 @@
+require './app/models/helper.rb'
+require 'pry'
+
 class Movie < ActiveRecord::Base
+  extend Helper
   belongs_to :director
   belongs_to :genre
   has_and_belongs_to_many :actors
@@ -55,12 +59,12 @@ class Movie < ActiveRecord::Base
 
   def self.list_movies_from_a_country(country)
     self.all.where("country == ?",country).map { |m| m.name}.sort!
+    # how to handle invalid input for this one?
   end
 
   def self.print_list_movies_from_a_country(country)
     puts self.list_movies_from_a_country(country)
   end
-
 
   def self.oscars_by_country
     hash = {}
@@ -84,7 +88,10 @@ class Movie < ActiveRecord::Base
 
   def self.movies_by_director_and_genre(director_name, genre_name)
     director = Director.find_by(name: director_name)
+    return Director.suggestions(director_name) if director.nil?
+
     genre = Genre.find_by(name: genre_name)
+    return Genre.suggestions(genre_name) if genre.nil?
 
     self.all.where("director_id == ? AND genre_id == ?", director, genre).map{|x| x.name}
   end
@@ -92,6 +99,8 @@ class Movie < ActiveRecord::Base
   def self.list_actors_in_movie(name)
     if self.find_by(name: name)
       self.find_by(name: name).actors.map { |m| m.name}.sort!
+    else
+      self.suggestions(name)
     end
   end
 
@@ -113,7 +122,7 @@ class Movie < ActiveRecord::Base
       you_may_also_like = Genre.list_movies_from_genre(genre).sample(3).join(", ")
       puts "Based on your movie you may also like: #{you_may_also_like}"
     else
-      puts "Invalid selection, please try again"
+      puts self.suggestions(name)
     end
   end
 end
