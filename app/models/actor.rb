@@ -11,8 +11,11 @@ class Actor < ActiveRecord::Base
   end
 
   def self.get_actors_movie(name)
-    if self.find_by(name: name)
-      self.find_by(name: name).movies.map { |m| m.name}.sort!
+    # if self.find_by(name: name)
+    #   self.find_by(name: name).movies.map { |m| m.name}.sort!
+    # end
+    if self.where('lower(name) == ?', name.downcase)[0]
+      self.where('lower(name) == ?', name.downcase)[0].movies.map {|m| m.name}.sort!
     end
   end
 
