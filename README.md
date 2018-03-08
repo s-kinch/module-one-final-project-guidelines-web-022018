@@ -15,7 +15,7 @@ Run 'rake import:films' to import data into the database
 
 # Run Instructions
 
-Run 'ruby bin/run'
+Run 'ruby bin/run.rb'
 
 Best viewed with console maximized.
 
