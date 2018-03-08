@@ -1,6 +1,8 @@
 class Genre < ActiveRecord::Base
   has_many :movies
   has_many :directors, through: :movies
+  has_many :actors, through: :movies
+
 
   def self.genre_with_the_most_movies
     arr = self.all.sort{|a,b| a.movies.count <=> b.movies.count}

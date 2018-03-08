@@ -1,5 +1,6 @@
 class Actor < ActiveRecord::Base
   has_and_belongs_to_many :movies
+  has_many :genres, through: :movies
 
   def self.list_all_actor_names
     self.all.map { |a| a.name}.sort!
