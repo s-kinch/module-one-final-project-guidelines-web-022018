@@ -22,8 +22,8 @@ class Director < ActiveRecord::Base
   end
 
   def self.list_of_movies_by_director(name)
-    if self.find_by(name: name)
-      self.find_by(name: name).movies.map { |m| m.name  }.sort!
+    if self.fnd(name)
+      self.fnd(name).movies.map { |m| m.name  }.sort!
     else
       self.suggestions(name)
     end
@@ -34,8 +34,8 @@ class Director < ActiveRecord::Base
   end
 
   def self.genres_of_movies_by_director(name)
-    if self.find_by(name: name)
-      self.find_by(name: name).genres.map { |genre| genre.name  }.uniq.sort!
+    if self.fnd(name)
+      self.fnd(name).genres.map { |genre| genre.name  }.uniq.sort!
     else
       self.suggestions(name)
     end
@@ -45,19 +45,4 @@ class Director < ActiveRecord::Base
     puts self.genres_of_movies_by_director(name)
   end
 
-  # def self.suggestions(name)
-  #   output = "Sorry, #{name} not found."
-  #   matches = self.all.where("name LIKE ?", "%#{name}%").map{ |m| m.name }.sort!
-  #   matches.length > 0 ? output + " Try: " + matches.join(', ') : output
-  # end
 end
-
-# module Helper
-#   module ClassMethods
-#     def suggestions(name)
-#       output = "Sorry, #{name} not found."
-#       matches = self.all.where("name LIKE ?", "%#{name}%").map{ |m| m.name }.sort!
-#       matches.length > 0 ? output + " Try: " + matches.join(', ') : output
-#     end
-#   end
-# end
