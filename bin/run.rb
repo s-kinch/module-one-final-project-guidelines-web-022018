@@ -7,17 +7,17 @@ def list_commands
 
     Type 'quit' to leave program
     --------------------------
-    1. List All Directors
-    2. List All Movies from a Director
-    3. List All Movie Genres from a Director
-    4. List Director with the Most Movies
-    5. List Movies by Director and Genre
+    1.  List All Directors
+    2.  List All Movies from a Director
+    3.  List All Movie Genres from a Director
+    4.  List Director with the Most Movies
+    5.  List Movies by Director and Genre
     --------------------------
-    6. List All Countries that have Movies on the List
-    7. List All Movies from a Country
+    6.  List All Countries that have Movies on the List
+    7.  List All Movies from a Country
     --------------------------
-    8. List All Movies that Won Oscars
-    9. List Movie with Most Oscars
+    8.  List All Movies that Won Oscars
+    9.  List Movie with Most Oscars
     10. List Oscars by Country
     --------------------------
     11. List All Movies
