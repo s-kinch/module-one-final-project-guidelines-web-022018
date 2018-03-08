@@ -28,8 +28,7 @@ class Genre < ActiveRecord::Base
   end
 
   def self.list_movies_from_genre(name)
-    if self.fnd(name)#self.find_by(name: name)
-      # self.find_by(name: name).movies.map { |m| m.name}.sort!
+    if self.fnd(name)
       self.fnd(name).movies.map { |m| m.name}.sort!
     else
       self.suggestions(name)
