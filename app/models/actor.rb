@@ -1,4 +1,7 @@
+require './app/models/helper.rb'
+
 class Actor < ActiveRecord::Base
+  extend Helper
   has_and_belongs_to_many :movies
   has_many :genres, through: :movies
 
@@ -13,6 +16,8 @@ class Actor < ActiveRecord::Base
   def self.get_actors_movie(name)
     if self.find_by(name: name)
       self.find_by(name: name).movies.map { |m| m.name}.sort!
+    else
+      self.suggestions(name)
     end
   end
 
@@ -21,7 +26,11 @@ class Actor < ActiveRecord::Base
   end
 
   def self.list_genres_for_actor(name)
-    self.find_by(name: name).genres.map {|g| g.name}.sort! if self.find_by(name: name)
+    if self.find_by(name: name)
+      self.find_by(name: name).genres.map {|g| g.name}.sort!
+    else
+      self.suggestions(name)
+    end
   end
 
   def self.print_list_genres_for_actor(name)

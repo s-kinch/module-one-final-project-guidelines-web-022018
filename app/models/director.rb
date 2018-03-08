@@ -1,4 +1,7 @@
+require './app/models/helper.rb'
+
 class Director < ActiveRecord::Base
+  extend Helper
   has_many :movies
   has_many :genres, through: :movies
 
@@ -42,9 +45,19 @@ class Director < ActiveRecord::Base
     puts self.genres_of_movies_by_director(name)
   end
 
-  def self.suggestions(name)
-    output = "Sorry, #{name} not found."
-    matches = self.all.where("name LIKE ?", "%#{name}%").map{ |m| m.name }.sort!
-    matches.length > 0 ? output + " Try: " + matches.join(', ') : output
-  end
+  # def self.suggestions(name)
+  #   output = "Sorry, #{name} not found."
+  #   matches = self.all.where("name LIKE ?", "%#{name}%").map{ |m| m.name }.sort!
+  #   matches.length > 0 ? output + " Try: " + matches.join(', ') : output
+  # end
 end
+
+# module Helper
+#   module ClassMethods
+#     def suggestions(name)
+#       output = "Sorry, #{name} not found."
+#       matches = self.all.where("name LIKE ?", "%#{name}%").map{ |m| m.name }.sort!
+#       matches.length > 0 ? output + " Try: " + matches.join(', ') : output
+#     end
+#   end
+# end
