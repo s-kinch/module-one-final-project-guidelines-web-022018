@@ -25,13 +25,11 @@ class Movie < ActiveRecord::Base
 
   def self.movies_within_year_range(year1, year2)
     if year1 > year2
-      dummy = year1
-      year1 = year2
-      year2 = dummy
+       dummy = year1
+       year1 = year2
+       year2 = dummy
     end
-
     self.print_titles(self.all.where("year >= ? AND year <= ?", year1, year2))
-    return nil
   end
 
   def self.print_titles(arr)
@@ -115,7 +113,7 @@ class Movie < ActiveRecord::Base
       you_may_also_like = Genre.list_movies_from_genre(genre).sample(3).join(", ")
       puts "Based on your movie you may also like: #{you_may_also_like}"
     else
-      puts "Invalid selection, please try again"  
+      puts "Invalid selection, please try again"
     end
   end
 end
