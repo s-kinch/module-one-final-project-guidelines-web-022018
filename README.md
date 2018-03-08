@@ -20,9 +20,14 @@ Run 'ruby bin/run.rb'
 Best viewed with console maximized
 
 # Contributors
+
 Sinclair Kinch https://github.com/s-kinch
 
 Mohammad Khan https://github.com/vsparrow
+
+# Data Source
+
+The Guardian https://www.theguardian.com/news/datablog/2010/oct/16/greatest-films-of-all-time
 
 # License
 
