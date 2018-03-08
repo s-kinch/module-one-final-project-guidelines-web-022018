@@ -1,8 +1,6 @@
-# require_relative 'config/environment'
 require './config/environment'
 require 'pry'
 require './bin/splash'
-# ^^^^ splash is running as soon as it's required, so at beginning, is this how we want it?
 
 def list_commands
   commands = <<-TEXT
@@ -84,7 +82,6 @@ def do_command(entry=nil)
     Movie.print_list_movies_from_a_country(name)
   when "8"
     puts ""
-    # Movie.print_titles(Movie.have_won_oscars)
     Movie.print_have_won_oscars
   when "9"
     puts ""
@@ -151,10 +148,6 @@ def do_command(entry=nil)
 end
 
 
-
-#possibly clear screen first
-# Gem.win_platform? ? (system "cls") : (system "clear")
-# puts "Welcome to the Greatest Films of All Time Database"
 
 stay_in_app = true
 

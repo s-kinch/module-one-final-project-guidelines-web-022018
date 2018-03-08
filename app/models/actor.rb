@@ -7,7 +7,6 @@ class Actor < ActiveRecord::Base
   end
 
   def self.print_list_of_all_actor_names
-    # self.list_all_actor_names.each { |a| puts a}
     puts self.list_all_actor_names
   end
 
@@ -28,7 +27,7 @@ class Actor < ActiveRecord::Base
   def self.print_list_genres_for_actor(name)
     puts self.list_genres_for_actor(name)
   end
-  #Add actor with moost movies
+
   def self.list_actor_with_the_most_movies
     arr = self.all.sort {|a,b| a.movies.count <=> b.movies.count} #sort by count , larger last
     arr.select{ |a| a.movies.count == arr[arr.size-1].movies.count}.map { |a| a.name}
