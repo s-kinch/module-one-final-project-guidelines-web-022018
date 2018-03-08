@@ -19,7 +19,13 @@ class Director < ActiveRecord::Base
   end
 
   def self.list_of_movies_by_director(name)
-    self.find_by(name: name).movies.map { |m| m.name  }.sort! if self.find_by(name: name)
+    if self.find_by(name: name)
+      self.find_by(name: name).movies.map { |m| m.name  }.sort!
+    else
+      output = "Sorry, #{name} not found."
+      matches = self.all.where("name LIKE ?", "%#{name}%").map{ |m| m.name }.sort!
+      matches.length > 0 ? output + " Try: " + matches.join(', ') : output 
+    end
   end
 
   def self.print_list_of_movies_by_director(name)
