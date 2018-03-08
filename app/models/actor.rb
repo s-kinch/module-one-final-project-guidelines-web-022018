@@ -24,7 +24,8 @@ class Actor < ActiveRecord::Base
   end
 
   def self.list_genres_for_actor(name)
-    self.find_by(name: name).genres.map {|g| g.name}.sort! if self.find_by(name: name)
+    # self.find_by(name: name).genres.map {|g| g.name}.sort! if self.find_by(name: name)
+    self.where('lower(name) == ?', name.downcase)[0].genres.map {|g| g.name}.sort! if self.where('lower(name) == ?', name.downcase)[0]
   end
 
   def self.print_list_genres_for_actor(name)
