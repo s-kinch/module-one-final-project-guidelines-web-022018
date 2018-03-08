@@ -29,4 +29,14 @@ class Actor < ActiveRecord::Base
     puts self.list_genres_for_actor(name)
   end
   #Add actor with moost movies
+  def self.list_actor_with_the_most_movies
+    arr = self.all.sort {|a,b| a.movies.count <=> b.movies.count} #sort by count , larger last
+    arr.select{ |a| a.movies.count == arr[arr.size-1].movies.count}.map { |a| a.name}
+  end
+
+  def self.print_list_actor_with_the_most_movies
+    list = self.list_actor_with_the_most_movies
+    puts "We have a tie!!!!!" if list.size > 1
+    puts list
+  end
 end
