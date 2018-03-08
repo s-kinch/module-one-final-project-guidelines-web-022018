@@ -87,10 +87,10 @@ class Movie < ActiveRecord::Base
   end
 
   def self.movies_by_director_and_genre(director_name, genre_name)
-    director = Director.find_by(name: director_name)
+    director = Director.fnd(director_name)
     return Director.suggestions(director_name) if director.nil?
 
-    genre = Genre.find_by(name: genre_name)
+    genre = Genre.fnd(genre_name)
     return Genre.suggestions(genre_name) if genre.nil?
 
     self.all.where("director_id == ? AND genre_id == ?", director, genre).map{|x| x.name}
