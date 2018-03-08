@@ -23,17 +23,18 @@ def list_commands
     11. List All Movies
     12. List Movies from a Year
     13. List Movies from a Range of Years
+    14. List Info about a Movie
     --------------------------
-    14. List All Genres
-    15. List All Movies from a Genre
-    16. List Genre with the Most Movies
-    17. List All Actors for a Genre
+    15. List All Genres
+    16. List All Movies from a Genre
+    17. List Genre with the Most Movies
+    18. List All Actors for a Genre
     --------------------------
-    18. List All Actors
-    19. List All of an Actor's Movies
-    20. List All of a Movie's Actors
-    21. List All Genres for Actor
-    22. List Actor with the Most Movies
+    19. List All Actors
+    20. List All of an Actor's Movies
+    21. List All of a Movie's Actors
+    22. List All Genres for Actor
+    23. List Actor with the Most Movies
 
     TEXT
   puts commands
@@ -106,40 +107,45 @@ def do_command(entry=nil)
     puts ""
     Movie.movies_within_year_range(year1, year2)
   when "14"
+    print "Please enter a movie name: "
+    movie_name = gets.chomp
+    puts ""
+    Movie.movie_info(movie_name)
+  when "15"
     puts ""
     puts Genre.print_genre_names
-  when "15"
+  when "16"
     print "Please enter a genre: "
     genre_name = gets.chomp
     puts ""
     Genre.print_list_movies_from_genre(genre_name)
-  when "16"
+  when "17"
     puts ""
     Genre.print_genre_with_the_most_movies
-  when "17"
+  when "18"
     print "Please enter a genre: "
     genre_name=gets.chomp
     puts ""
     Genre.print_list_actors_from_genre(genre_name)
-  when "18"
+  when "19"
     puts ""
     Actor.print_list_of_all_actor_names
-  when "19"
+  when "20"
     print "Please enter an actor's name: "
     actor_name = gets.chomp
     puts ""
     Actor.print_get_actors_movie(actor_name)
-  when "20"
+  when "21"
     print "Please enter a movie: "
     movie_name = gets.chomp
     puts ""
     Movie.print_list_actors_in_movie(movie_name)
-  when "21"
+  when "22"
     print "Please enter actor name: "
     actor_name = gets.chomp
     puts ""
     Actor.print_list_genres_for_actor(actor_name)
-  when "22"
+  when "23"
     puts ""
     Actor.print_list_actor_with_the_most_movies
   else
