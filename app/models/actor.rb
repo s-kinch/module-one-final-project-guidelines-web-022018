@@ -14,8 +14,8 @@ class Actor < ActiveRecord::Base
   end
 
   def self.get_actors_movie(name)
-    if self.find_by(name: name)
-      self.find_by(name: name).movies.map { |m| m.name}.sort!
+    if self.fnd(name)
+      self.fnd(name).movies.map { |m| m.name}.sort!
     else
       self.suggestions(name)
     end
@@ -26,8 +26,8 @@ class Actor < ActiveRecord::Base
   end
 
   def self.list_genres_for_actor(name)
-    if self.find_by(name: name)
-      self.find_by(name: name).genres.map {|g| g.name}.sort!
+    if self.fnd(name)
+      self.fnd(name).genres.map {|g| g.name}.uniq.sort!
     else
       self.suggestions(name)
     end
