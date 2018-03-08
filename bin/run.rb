@@ -34,6 +34,7 @@ def list_commands
     18. List All of an Actor's Movies
     19. List All of a Movie's Actors
     20. List All Genres for Actor
+    21. List Actor with the Most Movies
 
     TEXT
   puts commands
@@ -135,6 +136,9 @@ def do_command(entry=nil)
     actor_name = gets.chomp
     puts ""
     Actor.print_list_genres_for_actor(actor_name)
+  when "21"
+    puts ""
+    Actor.print_list_actor_with_the_most_movies
   else
     puts "Unable to comply, please check your input and try again."
   end
