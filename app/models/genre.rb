@@ -28,8 +28,9 @@ class Genre < ActiveRecord::Base
   end
 
   def self.list_movies_from_genre(name)
-    if self.find_by(name: name)
-      self.find_by(name: name).movies.map { |m| m.name}.sort!
+    if self.fnd(name)#self.find_by(name: name)
+      # self.find_by(name: name).movies.map { |m| m.name}.sort!
+      self.fnd(name).movies.map { |m| m.name}.sort!
     else
       self.suggestions(name)
     end
@@ -38,10 +39,9 @@ class Genre < ActiveRecord::Base
   def self.print_list_movies_from_genre(genre)
     puts self.list_movies_from_genre(genre)
   end
-  #    director = Director.fnd(director_name)
+
   def self.list_actors_from_genre(genre)
-    if self.fnd(genre)#Genre.find_by(name: genre)
-      # Genre.find_by(name: genre).actors.map{|a| a.name}.sort!
+    if self.fnd(genre)
       self.fnd(genre).actors.map{|a| a.name}.sort!
     else
       self.suggestions(genre)
