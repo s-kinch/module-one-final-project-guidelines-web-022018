@@ -24,16 +24,26 @@ class Genre < ActiveRecord::Base
     puts self.genre_names
   end
 
+# .where('lower(name) == ?', name.downcase)[0]
   def self.list_movies_from_genre(name)
-    self.find_by(name: name).movies.map { |m| m.name}.sort!  if self.find_by(name: name)
+    # self.find_by(name: name).movies.map { |m| m.name}.sort!  if self.find_by(name: name)
+    # self.where('lower(name) == ?', name.downcase)[0].nil?#.movies.map { |m| m.name}.sort!  if self.where('lower(name) == ?', name.downcase)[0]
+    if self.where('lower(name) == ?', name.downcase).exists?
+      self.where('lower(name) == ?', name.downcase)[0].movies.map { |m| m.name}.sort!
+    # else
+
+    end
   end
 
   def self.print_list_movies_from_genre(genre)
     puts self.list_movies_from_genre(genre)
   end
 
-  def self.list_actors_from_genre(genre)
-    Genre.find_by(name: genre).actors.map{|a| a.name}.sort! if Genre.find_by(name: genre)
+  def self.list_actors_from_genre(name)
+    # Genre.find_by(name: genre).actors.map{|a| a.name}.sort! if Genre.find_by(name: genre)
+    if self.where('lower(name) == ?', name.downcase).exists?
+      self.where('lower(name) == ?', name.downcase)[0].actors.map{|a| a.name}.sort!
+    end
   end
 
   def self.print_list_actors_from_genre(genre)
