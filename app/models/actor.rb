@@ -21,4 +21,12 @@ class Actor < ActiveRecord::Base
     puts self.get_actors_movie(name)
   end
 
+  def self.list_genres_for_actor(name)
+    self.find_by(name: name).genres.map {|g| g.name}.sort! if self.find_by(name: name)
+  end
+
+  def self.print_list_genres_for_actor(name)
+    puts self.list_genres_for_actor(name)
+  end
+  #Add actor with moost movies
 end

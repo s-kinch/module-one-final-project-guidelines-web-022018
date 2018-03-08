@@ -33,6 +33,7 @@ def list_commands
     17. List All Actors
     18. List All of an Actor's Movies
     19. List All of a Movie's Actors
+    # 20. List All Genres for Actor
 
     TEXT
   puts commands
@@ -129,6 +130,8 @@ def do_command(entry=nil)
     movie_name = gets.chomp
     puts ""
     Movie.print_list_actors_in_movie(movie_name)
+  # when "20"
+  #   print ""
   else
     puts "Unable to comply, please check your input and try again."
   end
