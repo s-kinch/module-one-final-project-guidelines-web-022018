@@ -100,4 +100,18 @@ class Movie < ActiveRecord::Base
   def self.print_list_actors_in_movie(name)
     puts self.list_actors_in_movie(name)
   end
+
+  def self.movie_info(name)
+    movie = self.find_by(name: name)
+    puts "Title: #{name}"
+    puts "Year: #{movie.year}"
+    puts "Director: #{movie.director.name}"
+    puts "Genre #{movie.genre.name}"
+    puts "Actors: #{ movie.actors.map{ |a| a.name}.join(', ')}"
+    puts "Country: #{movie.country}"
+    puts ""
+    genre = movie.genre.name
+    you_may_also_like = Genre.list_movies_from_genre(genre).sample(3).join(", ")
+    puts "Based on your movie you may also like: #{you_may_also_like}"
+  end
 end
